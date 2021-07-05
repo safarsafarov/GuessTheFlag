@@ -8,9 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
+    var correctAnswer = Int.random(in: 0...2)
+    
+    @State private var showingScore = false
+    @State private var scoreTitle = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        VStack {
+            Text("Tap the flag of")
+            ForEach(0 ..< 3) { number in
+                Button(action: {
+                    // flag was tapped
+                }) {
+                    Image(self.countries[number])
+                        .renderingMode(.original)
+                }
+                Text(countries[correctAnswer])
+            }
+            Spacer()
+        }
+    }
+    
+    func flagTapped(_ number: Int) {
+        if number == correctAnswer {
+            scoreTitle = "Correct"
+        } else {
+            scoreTitle = "Wrong"
+        }
+        
+        showingScore = true
     }
 }
 
