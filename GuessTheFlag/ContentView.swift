@@ -18,6 +18,7 @@ struct ContentView: View {
                     Text("Tap the flag of")
                         .foregroundColor(.white)
                     
+                    
                     Text(countries[correctAnswer])
                         .foregroundColor(.white)
                         .font(.largeTitle)
